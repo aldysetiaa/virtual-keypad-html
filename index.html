@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tes Andon</title>
+    <style>
+      .bulet{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+      }
+      #panggil
+      {
+        background-color: #087e08;
+      }
+      #start
+      {
+        background-color: #795548;
+      }
+      #stop
+      {
+        background-color: #3f51b5;
+      }
+      td{
+        padding: 10px;
+      }
+      table{
+        float: left;
+        margin-right: 250px;
+      }
+      #kotak{
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+      }
+
+      .frame{
+        border: 1px solid black;
+      }
+    </style>
+    <script src="ajax_jquery.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <h4> Virtual Keypad</h4>
+    <table border='0' >
+      <tr>
+        <td>
+          <div class="bulet"  id="panggil"></div>
+        </td>
+        <td>
+          <p>PANGGIL</p>
+        </td>
+      </tr>
+
+
+        <tr>
+          <td>
+            <div class="bulet"  id="start"></div>
+          </td>
+          <td>
+            <p>START</p>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            <div class="bulet"  id="stop"></div>
+          </td>
+          <td>
+            <p>STOP</p>
+          </td>
+        </tr>
+      </table>
+
+        <table width='300'>
+          <tr>
+            <td>OUTPUT</td>
+          </tr>
+          <tr>
+            <td class="frame">
+                <p>RECORD :</p>
+                <ul>
+                  <li >MENUNGGU : <span id="menunggu" ></span> </li>
+                  <li >PROSES : <span id="proses"></span> </li>
+                  <li >SELESAI : <span id="selesai" ></span> </li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('#panggil').on('click', () => {
+        $('#panggil').css("background-color", "#8de922");
+        $('#menunggu').html(waktu());
+      });
+
+
+      $('#start').on('click', () => {
+        $('#start').css("background-color", "#d5592d");
+        $('#proses').html(waktu());
+
+      });
+
+
+      $('#stop').on('click', () => {
+        $('#stop').css("background-color", "#95a2ec");
+        $('#selesai').html(waktu());
+
+      });
+    });
+    function waktu()
+    {
+
+        var dt = new Date();
+        var time = dt.getHours() + "." + dt.getMinutes() + "." + dt.getSeconds();
+        return time;
+    }
+    </script>
+
+  </body>
+</html>
